@@ -360,38 +360,75 @@ h2::after {
 .skill-category {
     background: var(--card-bg);
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1.5px solid rgba(128,128,0,0.10);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(.4,2,.3,1), box-shadow 0.3s, border 0.3s;
+}
+
+.skill-category::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    pointer-events: none;
+    background: linear-gradient(120deg, rgba(128,128,0,0.08) 0%, rgba(200,200,120,0.06) 100%);
+    z-index: 0;
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
+    transform: translateY(-7px) scale(1.025);
     box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
 }
 
 .skill-category h3 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
     font-size: 1.5rem;
-}
-
-.skill-list {
-    list-style: none;
-}
-
-.skill-list li {
-    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
     position: relative;
-    padding-left: 1.5rem;
+    z-index: 1;
+}
+
+.skill-icon {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    filter: drop-shadow(0 1px 2px rgba(128,128,0,0.10));
+}
+
+.skill-list.fa-ul {
+    margin-left: 0;
+    padding-left: 0.2em;
+}
+
+.skill-list.fa-ul li {
+    padding-left: 0.2em;
+    margin-bottom: 0.2em;
+    font-size: 1.08rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.skill-list.fa-ul li .fa-li {
+    left: 0;
+    position: relative;
+    margin-right: 0.7em;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    min-width: 1.2em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .skill-list li::before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
+    display: none !important;
 }
 
 /* Projects Section */
