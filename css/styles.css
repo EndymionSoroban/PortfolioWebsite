@@ -275,7 +275,6 @@ h2::after {
     display: block;
     font-size: 1.5rem;
     font-weight: 700;
-    color: #222;
     margin-bottom: 0.7rem;
 }
 
@@ -522,24 +521,37 @@ h2::after {
     text-align: center;
     padding: 0.75rem 2rem;
     background: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-    box-shadow: var(--shadow);
-    outline: none;
+    color: #18180f !important;
     border: none;
+    border-radius: 8px;
+    padding: 0.5em 1.2em;
+    text-decoration: none;
+    margin-right: 0.7em;
+    margin-bottom: 0.5em;
+    display: inline-block;
+    box-shadow: var(--shadow);
+    transition: background 0.3s ease, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    outline: none;
     cursor: pointer;
-    margin: 0 auto;
+    text-align: center;
 }
 
-.project-links a:hover, .project-links a:focus,
-.contact-btn:hover, .contact-btn:focus {
-    background: #b6d53c; /* Vibrant green highlight */
-    color: #222;
+.project-links a:hover, .project-links a:focus {
+    background: #b6d53c;
+    color: #222 !important;
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
     transform: translateY(-2px) scale(1.03);
+}
+
+.project-links a:visited {
+    color: #18180f !important;
+}
+
+.project-links a:active {
+    background: var(--secondary-color);
+    color: #18180f !important;
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12);
 }
 
 .project-img {
@@ -585,7 +597,6 @@ footer a:hover {
     border: none;
     cursor: pointer;
     text-align: center;
-    margin: 0 auto;
 }
 
 .contact-btn:hover, .contact-btn:focus {
