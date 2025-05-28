@@ -521,7 +521,7 @@ h2::after {
     text-align: center;
     padding: 0.75rem 2rem;
     background: var(--primary-color);
-    color: #f3f3e8;
+    color: #18180f !important;
     border: none;
     border-radius: 8px;
     padding: 0.5em 1.2em;
@@ -538,7 +538,7 @@ h2::after {
 
 .project-links a:hover, .project-links a:focus {
     background: #b6d53c;
-    color: #23231f;
+    color: #18180f !important;
     box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
     transform: translateY(-2px) scale(1.03);
 }
@@ -552,6 +552,14 @@ h2::after {
     color: #18180f !important;
     transform: translateY(2px) scale(0.98);
     box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+}
+
+.project-links a.details-link {
+    color: #18180f !important;
+}
+
+.project-links a.details-link:hover, .project-links a.details-link:focus {
+    color: #18180f !important;
 }
 
 .project-img {
