@@ -234,6 +234,96 @@ h2::after {
     line-height: 1.8;
 }
 
+.about-card {
+    display: flex;
+    gap: 3rem;
+    background: var(--card-bg);
+    border-radius: 18px;
+    box-shadow: var(--shadow-lg);
+    padding: 2.5rem 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.about-img-col {
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.about-text-col {
+    flex: 1 1 350px;
+    min-width: 260px;
+}
+
+.about-intro {
+    margin-bottom: 1.2rem;
+}
+
+.about-hello {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+}
+
+.about-title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.7rem;
+}
+
+.about-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem 0;
+}
+
+.about-highlights li {
+    margin-bottom: 0.5rem;
+    font-size: 1.08rem;
+    position: relative;
+    padding-left: 1.6em;
+}
+
+.about-highlights li::before {
+    content: '✔';
+    color: #b6d53c;
+    font-size: 1.1em;
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+}
+
+.about-impact {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.about-summary {
+    font-size: 1.08rem;
+    color: #333;
+    margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+    .about-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 2rem 1rem;
+    }
+    .about-img-col {
+        flex: none;
+        margin-bottom: 1.5rem;
+    }
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -363,20 +453,30 @@ h2::after {
     gap: 1rem;
 }
 
-.project-links a {
+.project-links a,
+.contact-btn {
     flex: 1;
     text-align: center;
-    padding: 0.75rem;
+    padding: 0.75rem 2rem;
     background: var(--primary-color);
     color: white;
     text-decoration: none;
     border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 500;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    box-shadow: var(--shadow);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
 }
 
-.project-links a:hover {
-    background: var(--secondary-color);
-    transform: translateY(-2px);
+.project-links a:hover, .project-links a:focus,
+.contact-btn:hover, .contact-btn:focus {
+    background: #b6d53c; /* Vibrant green highlight */
+    color: #222;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+    transform: translateY(-2px) scale(1.03);
 }
 
 .project-img {
@@ -407,6 +507,31 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Contact Button */
+.contact-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: var(--shadow);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.contact-btn:hover, .contact-btn:focus {
+    background: #b6d53c; /* Vibrant green highlight */
+    color: #222;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+    transform: translateY(-2px) scale(1.03);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {
@@ -428,6 +553,18 @@ footer a:hover {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .about-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 2rem 1rem;
+    }
+    .about-img-col {
+        flex: none;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -494,5 +631,8 @@ section#contact a {
     }
     .project-links a:hover {
         background: var(--secondary-color);
+    }
+    .about-title, .about-summary {
+        color: #f8f8f2 !important;
     }
 }
