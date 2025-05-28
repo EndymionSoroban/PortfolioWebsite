@@ -7,13 +7,13 @@
 }
 
 :root {
-    --primary-color: #808000; /* Muted olive green */
-    --secondary-color: #808000; /* Use olive green for both gradient ends */
-    --text-color: #1f2937;
-    --bg-color: #F8F8F2; /* Soft off-white */
-    --card-bg: #ffffff;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --primary-color: #bfcf6a; /* lighter olive for dark bg */
+    --secondary-color: #a0a05a; /* lighter olive for gradient */
+    --text-color: #f8f8f2;
+    --bg-color: #23231f; /* deep olive/earthy dark */
+    --card-bg: #2d2d25;
+    --shadow: 0 4px 6px -1px rgba(0,0,0,0.7), 0 2px 4px -1px rgba(0,0,0,0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.7), 0 4px 6px -2px rgba(0,0,0,0.5);
 }
 
 body {
@@ -649,53 +649,4 @@ footer a:hover {
 .project-type,
 section#contact a {
     color: #000 !important;
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --primary-color: #bfcf6a; /* lighter olive for dark bg */
-        --secondary-color: #a0a05a; /* lighter olive for gradient */
-        --text-color: #f8f8f2;
-        --bg-color: #23231f; /* deep olive/earthy dark */
-        --card-bg: #2d2d25;
-        --shadow: 0 4px 6px -1px rgba(0,0,0,0.7), 0 2px 4px -1px rgba(0,0,0,0.5);
-        --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.7), 0 4px 6px -2px rgba(0,0,0,0.5);
-    }
-    body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-    }
-    header, .profile-img, .project-header {
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    }
-    .profile-img::before {
-        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    }
-    .skill-category, .project-card {
-        background: var(--card-bg);
-    }
-    nav, .container {
-        background: transparent;
-    }
-    footer {
-        background: #18180f;
-        color: var(--text-color);
-    }
-    footer a {
-        color: var(--primary-color);
-    }
-    .tech-tag {
-        background: #44442e;
-        color: #e0e0c0;
-    }
-    .project-links a {
-        background: var(--primary-color);
-        color: #23231f;
-    }
-    .project-links a:hover {
-        background: var(--secondary-color);
-    }
-    .about-title, .about-summary {
-        color: #f8f8f2 !important;
-    }
 }
