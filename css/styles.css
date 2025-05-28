@@ -292,13 +292,39 @@ h2::after {
     padding-left: 1.6em;
 }
 
-.about-highlights li::before {
-    content: '✔';
-    color: #b6d53c;
-    font-size: 1.1em;
-    position: absolute;
-    left: 0;
-    top: 0.1em;
+.about-highlights-table {
+    padding: 0;
+    margin: 0 0 1.2rem 0;
+}
+
+.about-highlights-table li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8em;
+    margin-bottom: 0.5rem;
+    font-size: 1.08rem;
+    padding-left: 0;
+    text-indent: 0;
+}
+
+.icon-col {
+    flex: 0 0 1.7em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.7em;
+}
+
+.text-col {
+    flex: 1 1 auto;
+    display: block;
+}
+
+.about-highlights-table i {
+    font-size: 1.2em;
+    min-width: 1.5em;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .about-impact {
