@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piotr Nalewajko - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --bg-color: #f9fafb;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s;
+            animation-fill-mode: both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-img::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+            border-radius: 50%;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .profile-img:hover::before {
+            opacity: 1;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+            transition: transform 0.2s ease;
+        }
+
+        .contact-info a:hover {
+            transform: translateX(5px);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .project-header h3 {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-type {
+            position: relative;
+            z-index: 1;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-description {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #e5e7eb;
+            color: #4b5563;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .project-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            nav li {
+                margin: 0 0.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Piotr Nalewajko</h1>
+            <p class="tagline">Full Stack Software Engineer</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about" class="fade-in">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="profile-section">
+                    <div class="profile-img">PN</div>
+                    <div class="contact-info">
+                        <a href="mailto:piotr.m.nalewajko@gmail.com">piotr.m.nalewajko@gmail.com</a>
+                        <a href="tel:07478947634">07478 947634</a>
+                        <a href="https://github.com/EndymionSoroban" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/piotr-nalewajko" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a Full Stack Software Engineer with expertise in building distributed systems, RESTful APIs, and data-intensive applications. 
+                        Currently onboarding for a Software Engineering II, Site Reliability Engineering role at Google.
+                    </p>
+                    <p>
+                        With experience across multiple programming languages including Java, JavaScript, C++, Perl, and Racket, I have a proven track record 
+                        of optimizing business processes through innovative technical solutions. My work has resulted in significant efficiency improvements 
+                        and cost savings for businesses.
+                    </p>
+                    <p>
+                        I'm passionate about clean code, scalable architecture, and solving complex problems with elegant solutions. Whether it's reducing 
+                        quote generation time by 65% or achieving 99.9% system reliability, I focus on delivering measurable impact.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="fade-in">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>C++</li>
+                        <li>Perl</li>
+                        <li>Racket</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend Technologies</h3>
+                    <ul class="skill-list">
+                        <li>Node.js</li>
+                        <li>Spring Boot</li>
+                        <li>RESTful APIs</li>
+                        <li>GraphQL</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>PostgreSQL</li>
+                        <li>Redis</li>
+                        <li>AWS / GCP</li>
+                        <li>Docker</li>
+                        <li>CI/CD Pipelines</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Data Structures & Algorithms</h3>
+                    <ul class="skill-list">
+                        <li>Graph Algorithms</li>
+                        <li>Dynamic Programming</li>
+                        <li>System Design</li>
+                        <li>Performance Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Development Practices</h3>
+                    <ul class="skill-list">
+                        <li>Git Version Control</li>
+                        <li>Agile/Scrum</li>
+                        <li>Test-Driven Development</li>
+                        <li>Code Reviews</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend & Mobile</h3>
+                    <ul class="skill-list">
+                        <li>React</li>
+                        <li>HTML5 Canvas</li>
+                        <li>CSS3 / Responsive Design</li>
+                        <li>Android Development</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="fade-in">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Sharp Turn</h3>
+                        <p class="project-type">Multiplayer Game</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A modern web-based multiplayer arcade game inspired by "Achtung, die Kurve!" Features dynamic powerups, 
+                            AI opponents with advanced pathfinding, and optimized rendering with Web Workers.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5 Canvas</span>
+                            <span class="tech-tag">Web Workers</span>
+                            <span class="tech-tag">AI Algorithms</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://endymionsoroban.github.io/sharpTurn/" target="_blank">Live Demo</a>
+                            <a href="https://github.com/EndymionSoroban/sharpTurn" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Google Drive Image Gallery</h3>
+                        <p class="project-type">Full Stack Web App</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A secure image gallery system with Google Drive integration. Features OAuth 2.0 authentication, 
+                            password protection, drag-and-drop organization, and responsive design.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Google Drive API</span>
+                            <span class="tech-tag">OAuth 2.0</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/EndymionSoroban/PhotoGallery" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Particle Accelerator Incremental</h3>
+                        <p class="project-type">Incremental Game</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            An engaging physics-themed incremental game where players manage a particle accelerator. 
+                            Features realistic particle physics simulation, multiple particle types, and upgrade systems.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5 Canvas</span>
+                            <span class="tech-tag">Game Design</span>
+                            <span class="tech-tag">Physics Simulation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://endymionsoroban.github.io/particleAcceleratorIncremental/" target="_blank">Live Demo</a>
+                            <a href="https://github.com/EndymionSoroban/particleAcceleratorIncremental" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Snake Game PDF</h3>
+                        <p class="project-type">Creative Experiment</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A unique implementation of Snake game that runs entirely within a PDF file. 
+                            Demonstrates creative use of PDF JavaScript capabilities and form fields.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PDF Scripting</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/EndymionSoroban/snakeGamePDF" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>PPL Tracker</h3>
+                        <p class="project-type">Android App</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A mobile application for tracking Push-Pull-Legs workout programs with linear progression. 
+                            Features workout history, progress charts, and 1RM calculations.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Room Database</span>
+                            <span class="tech-tag">MVVM</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/EndymionSoroban/PPLTracker" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Timber Estimation System</h3>
+                        <p class="project-type">Enterprise Solution</p>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A distributed estimation system that reduced quote generation time by 65%. Features 
+                            parametric design engine, MongoDB integration, and real-time pricing updates.
+                        </p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">RESTful APIs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" onclick="alert('Enterprise project - code not publicly available'); return false;">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2>Get In Touch</h2>
+            <p style="font-size: 1.2rem; text-align: center; max-width: 600px; margin: 0 auto;">
+                I'm always interested in discussing new opportunities, innovative projects, or just having a chat about technology. 
+                Feel free to reach out!
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="mailto:piotr.m.nalewajko@gmail.com" style="display: inline-block; padding: 1rem 2rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: 500; transition: background 0.3s ease;">
+                    Send Me an Email
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Piotr Nalewajko. All rights reserved.</p>
+        <p>Built with ❤️ and hosted on <a href="https://github.com/EndymionSoroban" target="_blank">GitHub Pages</a></p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active state to navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.style.color = 'var(--primary-color)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
