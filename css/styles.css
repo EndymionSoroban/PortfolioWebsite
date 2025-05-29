@@ -244,6 +244,9 @@ h2::after {
     align-items: center;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    perspective: 1200px;
+    transition: transform 0.3s cubic-bezier(.4,2,.3,1), box-shadow 0.3s;
+    will-change: transform;
 }
 
 .about-img-col {
@@ -670,4 +673,10 @@ footer a:hover {
 .project-type,
 section#contact a {
     color: #000 !important;
+}
+
+/* JS sets box-shadow on hover, but we want to keep it black. So, update the JS and set the correct shadow here for hover: */
+.about-card:hover,
+.about-card.is-tilting {
+    box-shadow: 0 32px 80px 0 rgba(0,0,0,0.45), 0 4px 16px 0 rgba(0,0,0,0.32);
 }
