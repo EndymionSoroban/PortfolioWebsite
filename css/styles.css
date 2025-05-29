@@ -619,6 +619,98 @@ footer a:hover {
     transform: translateY(-2px) scale(1.03);
 }
 
+/* Contact Form Card */
+.contact-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 2.5rem 2rem 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1.5px solid rgba(128,128,0,0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* No hover or transform effects */
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-card label {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.contact-card input,
+.contact-card textarea {
+    background: #23231f;
+    color: var(--text-color);
+    border: 1.5px solid rgba(128,128,0,0.15);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: border 0.2s;
+    resize: vertical;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact-card button[type="submit"] {
+    background: var(--primary-color);
+    color: #18180f;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background 0.3s;
+    width: 100%;
+    font-size: 0.875rem; /* Match .project-links a font size */
+    margin-bottom: 0.5em; /* Reduce extra space below button */
+}
+
+.contact-card button[type="submit"]:hover,
+.contact-card button[type="submit"]:focus {
+    background: #b6d53c;
+    color: #18180f;
+}
+
+.contact-card .input-icon-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.contact-card .input-icon {
+    margin-right: 0.7em;
+    color: var(--primary-color);
+    font-size: 1.1em;
+    min-width: 1.5em;
+    text-align: center;
+}
+
+.contact-card input[type="text"],
+.contact-card input[type="email"] {
+    flex: 1 1 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     h1 {

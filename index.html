@@ -261,22 +261,24 @@
                 Feel free to reach out!
             </p>
             <div style="text-align: center; margin-top: 2rem;">
-                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkgrdalr" method="POST">
-                    <div class="input-icon-group">
-                        <i class="fa-solid fa-user-tie input-icon"></i>
-                        <input type="text" id="name" name="name" required placeholder="Name">
-                    </div>
-                    <div class="input-icon-group">
-                        <i class="fa-solid fa-envelope input-icon"></i>
-                        <input type="email" id="email" name="email" required placeholder="Email">
-                    </div>
-                    <textarea id="message" name="message" rows="5" required placeholder=" Message"></textarea>
-                    <!-- Simple spam protection: hidden honeypot field -->
-                    <input type="text" id="website" name="website" style="display:none;">
-                    <input type="hidden" name="_subject" value="[Portfolio Contact Form] New message!">
-                    <button type="submit" class="contact-btn">Send Message</button>
-                    <div id="form-status"></div>
-                </form>
+                <div class="contact-card">
+                    <form id="contact-form" action="https://formspree.io/f/mkgrdalr" method="POST">
+                        <div class="input-icon-group">
+                            <i class="fa-solid fa-user-tie input-icon"></i>
+                            <input type="text" id="name" name="name" required placeholder="Name">
+                        </div>
+                        <div class="input-icon-group">
+                            <i class="fa-solid fa-envelope input-icon"></i>
+                            <input type="email" id="email" name="email" required placeholder="Email">
+                        </div>
+                        <textarea id="message" name="message" rows="5" required placeholder="Message"></textarea>
+                        <!-- Simple spam protection: hidden honeypot field -->
+                        <input type="text" id="website" name="website" style="display:none;">
+                        <input type="hidden" name="_subject" value="[Portfolio Contact Form] New message!">
+                        <button type="submit" class="contact-btn">Send Message</button>
+                        <div id="form-status"></div>
+                    </form>
+                </div>
                 <a href="mailto:piotr.m.nalewajko@gmail.com" class="contact-btn" style="margin-top: 1.5em; display: inline-block;">
                     <i class="fa-solid fa-envelope" style="margin-right:0.5em;"></i>Send me an email
                 </a>
@@ -310,122 +312,6 @@
         status.style.color = "#808000";
       });
     </script>
-    <style>
-      /* Custom tooltip styling for project links */
-      .tooltip-link {
-        position: relative;
-        cursor: pointer;
-        color: #808000;
-        text-decoration: underline dotted;
-      }
-      .custom-tooltip {
-        visibility: hidden;
-        opacity: 0;
-        width: 220px;
-        background: #222;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 0.7em 1em;
-        position: absolute;
-        z-index: 10;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: opacity 0.2s;
-        font-size: 0.95em;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-        pointer-events: none;
-      }
-      .tooltip-link:hover .custom-tooltip,
-      .tooltip-link:focus .custom-tooltip {
-        visibility: visible;
-        opacity: 1;
-      }
-      .tooltip-link .custom-tooltip::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -7px;
-        border-width: 7px;
-        border-style: solid;
-        border-color: #222 transparent transparent transparent;
-      }
-      /* Contact form styling to match About Me section and site design */
-      .contact-form {
-        max-width: 400px;
-        margin: 0 auto;
-        text-align: left;
-        background: var(--card-bg, #2d2d25); /* use CSS variable for card background */
-        padding: 2em 2em 1em 2em;
-        border-radius: 16px;
-        box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 1.5px 4px 0 rgba(0,0,0,0.10);
-        border: 1.5px solid #23231f;
-      }
-      .input-icon-group {
-        position: relative;
-        margin-bottom: 1.2em;
-      }
-      .input-icon {
-        position: absolute;
-        left: 0.9em;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #808000;
-        font-size: 1.1em;
-        pointer-events: none;
-      }
-      .contact-form input[type="text"],
-      .contact-form input[type="email"],
-      .contact-form textarea {
-        width: 100%;
-        padding: 0.5em 0.5em 0.5em 2.3em;
-        border-radius: 5px;
-        border: 1px solid #444;
-        background: var(--card-bg, #2d2d25);
-        color: #e0e0c0;
-        font-size: 1em;
-        font-family: inherit;
-        box-sizing: border-box;
-        transition: border 0.2s;
-      }
-      .contact-form textarea {
-        margin-bottom: 1em;
-        padding-left: 0.5em;
-        resize: vertical;
-      }
-      .contact-form input[type="text"]:focus,
-      .contact-form input[type="email"]:focus,
-      .contact-form textarea:focus {
-        border: 1.5px solid #808000;
-        outline: none;
-      }
-      .contact-form button[type="submit"],
-      .contact-btn {
-        background: #808000;
-        color: #fff;
-        border: none;
-        padding: 0.7em 2em;
-        border-radius: 5px;
-        font-size: 1.1em;
-        cursor: pointer;
-        margin-top: 0.5em;
-        transition: background 0.2s;
-        text-decoration: none;
-        display: inline-block;
-      }
-      .contact-form button[type="submit"]:hover,
-      .contact-btn:hover {
-        background: #a0a000;
-        color: #fff;
-      }
-      .contact-form #form-status {
-        margin-top: 1em;
-        font-size: 1em;
-        color: #808000;
-        font-family: inherit;
-      }
-    </style>
+    
 </body>
 </html>
