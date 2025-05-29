@@ -267,7 +267,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Piotr Nalewajko. All rights reserved.</p>
+        <p>&copy; <span id="current-year">2025</span> Piotr Nalewajko. All rights reserved.</p>
         <p>Built with ❤️ and hosted on <a href="https://github.com/EndymionSoroban" target="_blank">GitHub Pages</a></p>
     </footer>
 
@@ -275,5 +275,9 @@
     <script src="js/fade-in.js"></script>
     <script src="js/nav-active.js"></script>
     <script src="js/about-card-tilt.js"></script>
+    <script>
+      // Dynamically set the current year in the footer
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
