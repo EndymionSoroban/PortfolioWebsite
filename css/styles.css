@@ -496,6 +496,7 @@ h2::after {
 }
 
 .project-description {
+    text-align: justify;
     flex-grow: 1;
     margin-bottom: 1rem;
 }
@@ -531,7 +532,7 @@ h2::after {
     border-radius: 8px;
     padding: 0.5em 1.2em;
     text-decoration: none;
-    margin-right: 0.7em;
+    /* margin-right: 0.7em; */
     margin-bottom: 0.5em;
     display: inline-block;
     box-shadow: var(--shadow);
